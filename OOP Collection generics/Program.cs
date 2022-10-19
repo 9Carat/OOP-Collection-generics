@@ -4,15 +4,10 @@ namespace OOP_Collection_generics
 {
     internal class Program
     {
-        //public static void Display<T>(Stack)
-        //{
-        //    foreach (T item in stack)
-        //    {
-        //        Console.Write(item + " ");
-        //    }
-        //    Console.WriteLine();
-        //}
-
+        public static bool IsMale(Employee e) //Method used for checking if gender is male
+        {
+            return e.Gender == "Male";
+        }
         static void Main(string[] args)
         {
             Employee emp1 = new Employee(101, "Alex", "Male", 45000);
@@ -21,8 +16,10 @@ namespace OOP_Collection_generics
             Employee emp4 = new Employee(104, "Oskar", "Male", 25000);
             Employee emp5 = new Employee(105, "Stefan", "Male", 350000);
 
-            Stack<object> stack = new Stack<object>();
+            Console.WriteLine("Part One: Stack");
 
+            //Creating a stack and populating it with 5 objects of the employee class
+            Stack<object> stack = new Stack<object>();
             stack.Push(emp1);
             stack.Push(emp2);
             stack.Push(emp3);
@@ -36,10 +33,10 @@ namespace OOP_Collection_generics
                 Console.WriteLine(item.ID + " - " + item.Name + " - " + item.Gender + " - " + item.Salary);
                 Console.WriteLine("Items left in stack: " + stack.Count);
             }
+
             Console.WriteLine(" ");
             Console.WriteLine("*******************************");
             Console.WriteLine(" ");
-
             Console.WriteLine("Retrieving objects using the pop method");
 
             Employee tempEmp1 = (Employee)stack.Pop();
@@ -58,7 +55,7 @@ namespace OOP_Collection_generics
             Console.WriteLine(tempEmp5.ID + " - " + tempEmp5.Name + " - " + tempEmp5.Gender + " - " + tempEmp5.Salary);
             Console.WriteLine("Items left in stack: " + stack.Count);
 
-            Console.WriteLine("Returning objects using the push method...");
+            //Returning objects using the push method
             stack.Push(emp1);
             stack.Push(emp2);
             stack.Push(emp3);
@@ -68,13 +65,14 @@ namespace OOP_Collection_generics
             Console.WriteLine(" ");
             Console.WriteLine("*******************************");
             Console.WriteLine(" ");
-
             Console.WriteLine("Retrieving objects using the peek method");
 
             Employee temp1 = (Employee)stack.Peek();
             Console.WriteLine(temp1.ID + " - " + temp1.Name + " - " + temp1.Gender + " - " + temp1.Salary);
             Console.WriteLine("Items left in stack: " + stack.Count);
-            stack.Pop();
+
+            stack.Pop(); // Removing the top object in order to peek at the second object from the top
+
             Employee temp2 = (Employee)stack.Peek();
             Console.WriteLine(temp2.ID + " - " + temp2.Name + " - " + temp2.Gender + " - " + temp2.Salary);
             Console.WriteLine("Items left in stack: " + stack.Count);
@@ -86,11 +84,56 @@ namespace OOP_Collection_generics
 
             if (stack.Contains(emp3))
             {
-                Console.WriteLine("Emp3 is in stack");
+                Console.WriteLine("Employee nr.3 is in stack");
             }
             else
             {
-                Console.WriteLine("Emp3 is not in stack");
+                Console.WriteLine("Employee nr.3 is not in stack");
+            }
+
+            Console.WriteLine(" ");
+            Console.WriteLine("*******************************");
+            Console.WriteLine(" ");
+
+            Console.WriteLine("Part Two: List");
+
+            //Creating a list and populating it with 5 objects of the employee class
+            List<Employee> empList = new List<Employee>();
+            empList.Add(emp1);
+            empList.Add(emp2);
+            empList.Add(emp3);
+            empList.Add(emp4);
+            empList.Add(emp5);
+
+            if (empList.Contains(emp2))
+            {
+                Console.WriteLine("Employee nr.2 exists in the list");
+            }
+            else
+            {
+                Console.WriteLine("Employee nr.2 does not exist in the list");
+            }
+
+            Console.WriteLine(" ");
+            Console.WriteLine("*******************************");
+            Console.WriteLine(" ");
+
+            //Using the Find method to find the first employee whoose gender is male
+            Employee tempEmp = empList.Find(e => e.Gender.Contains("Male"));
+            Console.WriteLine("First employee with gender \"Male\": \n" +  "ID = {0}, Name = {1}, Gender = {2}, Salary = {3}", tempEmp.ID, tempEmp.Name, tempEmp.Gender, tempEmp.Salary);
+
+            Console.WriteLine(" ");
+            Console.WriteLine("*******************************");
+            Console.WriteLine(" ");
+
+            //Using the FindAll method to find all employees whoose gender is male
+            Console.WriteLine("All employees with gender \"Male\":");
+
+            List<Employee> result = new List<Employee>(empList.FindAll(IsMale));
+
+            foreach(Employee e in result)
+            {
+                Console.WriteLine("ID = {0}, Name = {1}, Gender = {2}, Salary = {3}", e.ID, e.Name, e.Gender, e.Salary);
             }
         }
     }
