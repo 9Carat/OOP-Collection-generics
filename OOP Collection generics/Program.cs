@@ -39,6 +39,7 @@ namespace OOP_Collection_generics
             Console.WriteLine(" ");
             Console.WriteLine("Retrieving objects using the pop method");
 
+            //Removes objects using pop method
             Employee tempEmp1 = (Employee)stack.Pop();
             Console.WriteLine(tempEmp1.ID + " - " + tempEmp1.Name + " - " + tempEmp1.Gender + " - " + tempEmp1.Salary);
             Console.WriteLine("Items left in stack: " + stack.Count);
@@ -67,22 +68,25 @@ namespace OOP_Collection_generics
             Console.WriteLine(" ");
             Console.WriteLine("Retrieving objects using the peek method");
 
+            //Retrieving the top object using peek
             Employee temp1 = (Employee)stack.Peek();
             Console.WriteLine(temp1.ID + " - " + temp1.Name + " - " + temp1.Gender + " - " + temp1.Salary);
             Console.WriteLine("Items left in stack: " + stack.Count);
 
             stack.Pop(); // Removing the top object in order to peek at the second object from the top
 
-            Employee temp2 = (Employee)stack.Peek();
+            Employee temp2 = (Employee)stack.Peek(); // Peeking at the second object
             Console.WriteLine(temp2.ID + " - " + temp2.Name + " - " + temp2.Gender + " - " + temp2.Salary);
             Console.WriteLine("Items left in stack: " + stack.Count);
-            stack.Push(emp5);
+
+            stack.Push(emp5); //Returning the top object
 
             Console.WriteLine(" ");
             Console.WriteLine("*******************************");
             Console.WriteLine(" ");
 
-            if (stack.Contains(emp3))
+            //Checks if stack contains employee3 using the Contains method
+            if (stack.Contains(emp3)) 
             {
                 Console.WriteLine("Employee nr.3 is in stack");
             }
@@ -105,6 +109,7 @@ namespace OOP_Collection_generics
             empList.Add(emp4);
             empList.Add(emp5);
 
+            //Checks if list contains employee3 using the Contains method
             if (empList.Contains(emp2))
             {
                 Console.WriteLine("Employee nr.2 exists in the list");
@@ -129,9 +134,9 @@ namespace OOP_Collection_generics
             //Using the FindAll method to find all employees whoose gender is male
             Console.WriteLine("All employees with gender \"Male\":");
 
-            List<Employee> result = new List<Employee>(empList.FindAll(IsMale));
+            List<Employee> maleEmployees = new List<Employee>(empList.FindAll(IsMale)); //Creates maleEmployee list, throws all objects in empList through the IsMale method which return true if gender is male and then places those objects into the maleEmployee list 
 
-            foreach(Employee e in result)
+            foreach(Employee e in maleEmployees)
             {
                 Console.WriteLine("ID = {0}, Name = {1}, Gender = {2}, Salary = {3}", e.ID, e.Name, e.Gender, e.Salary);
             }
