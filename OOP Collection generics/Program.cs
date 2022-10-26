@@ -134,7 +134,7 @@ namespace OOP_Collection_generics
             //Using the FindAll method to find all employees whoose gender is male
             Console.WriteLine("All employees with gender \"Male\":");
 
-            List<Employee> maleEmployees = new List<Employee>(empList.FindAll(IsMale)); //Creates maleEmployee list, throws all objects in empList through the IsMale method which return true if gender is male and then places those objects into the maleEmployee list 
+            List<Employee> maleEmployees = empList.FindAll(IsMale); //Creates maleEmployee list, throws all objects in empList through the IsMale method which return true if gender is male and then places those objects into the maleEmployee list 
 
             foreach(Employee e in maleEmployees)
             {
