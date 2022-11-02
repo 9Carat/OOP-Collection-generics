@@ -8,10 +8,29 @@ namespace OOP_Collection_generics
 {
     public class Employee
     {
-        public int ID;
-        public string Name;
-        public string Gender;
-        public int Salary;
+        private int _id;
+        private string _name;
+        private string _gender;
+        private int _salary;
+
+        public int ID { get { return _id; } set { _id = value; } }
+        public string Name { get { return _name; } set { _name = value; } }
+        public string Gender
+        {
+            get { return _gender; }
+            set
+            {
+                if (value == "Male" || value == "Female" || value == "Other")
+                {
+                    _gender = value;
+                }
+                else
+                {
+                    _gender = "Unknown";
+                }
+            }
+        }
+        public int Salary { get { return _salary; } set { _salary = value; } }
 
         public Employee(int ID, string Name, string Gender, int Salary)
         {
