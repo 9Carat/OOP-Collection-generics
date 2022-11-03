@@ -43,15 +43,19 @@ namespace OOP_Collection_generics
             Employee tempEmp1 = (Employee)stack.Pop();
             Console.WriteLine(tempEmp1.ID + " - " + tempEmp1.Name + " - " + tempEmp1.Gender + " - " + tempEmp1.Salary);
             Console.WriteLine("Items left in stack: " + stack.Count);
+
             Employee tempEmp2 = (Employee)stack.Pop();
             Console.WriteLine(tempEmp2.ID + " - " + tempEmp2.Name + " - " + tempEmp2.Gender + " - " + tempEmp2.Salary);
             Console.WriteLine("Items left in stack: " + stack.Count);
+
             Employee tempEmp3 = (Employee)stack.Pop();
             Console.WriteLine(tempEmp3.ID + " - " + tempEmp3.Name + " - " + tempEmp3.Gender + " - " + tempEmp3.Salary);
             Console.WriteLine("Items left in stack: " + stack.Count);
+
             Employee tempEmp4 = (Employee)stack.Pop();
             Console.WriteLine(tempEmp4.ID + " - " + tempEmp4.Name + " - " + tempEmp4.Gender + " - " + tempEmp4.Salary);
             Console.WriteLine("Items left in stack: " + stack.Count);
+
             Employee tempEmp5 = (Employee)stack.Pop();
             Console.WriteLine(tempEmp5.ID + " - " + tempEmp5.Name + " - " + tempEmp5.Gender + " - " + tempEmp5.Salary);
             Console.WriteLine("Items left in stack: " + stack.Count);
@@ -73,13 +77,9 @@ namespace OOP_Collection_generics
             Console.WriteLine(temp1.ID + " - " + temp1.Name + " - " + temp1.Gender + " - " + temp1.Salary);
             Console.WriteLine("Items left in stack: " + stack.Count);
 
-            stack.Pop(); // Removing the top object in order to peek at the second object from the top
-
-            Employee temp2 = (Employee)stack.Peek(); // Peeking at the second object
+            Employee temp2 = (Employee)stack.Peek(); 
             Console.WriteLine(temp2.ID + " - " + temp2.Name + " - " + temp2.Gender + " - " + temp2.Salary);
             Console.WriteLine("Items left in stack: " + stack.Count);
-
-            stack.Push(emp5); //Returning the top object
 
             Console.WriteLine(" ");
             Console.WriteLine("*******************************");
